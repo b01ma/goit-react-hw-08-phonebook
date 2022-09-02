@@ -1,12 +1,26 @@
+import { Add } from '@mui/icons-material';
+import { Button, TextField } from '@mui/material';
 import React from 'react';
 
 const NewContactForm = () => {
   return (
     <div>
       <form>
-        <input type="text" name="Name" placeholder="Name" />
-        <input type="number" name="Number" placeholder="Number" />
-        <button type="submit">New Contact</button>
+        <TextField
+          hiddenLabel
+          id="outlined-basic"
+          label="Name"
+          variant="outlined"
+        />
+        <TextField
+          hiddenLabel
+          id="outlined-basic"
+          label="Number"
+          variant="outlined"
+        />
+        <Button variant="contained" startIcon={<Add />}>
+          Add
+        </Button>
       </form>
     </div>
   );

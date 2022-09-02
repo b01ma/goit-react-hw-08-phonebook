@@ -5,15 +5,13 @@ import Authorithation from 'pages/Auth/Authorithation';
 import LoginForm from './LogininForm/LoginForm';
 import RegisterForm from './RegisterForm/RegisterForm';
 import NewContactForm from './NewContactForm/NewContactForm';
+import AppNavBar from './AppBar/AppBar';
+import ButtonAppBar from './AppBar/AppBar';
 
 export const App = () => {
   return (
     <div>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/contacts">Contacts</NavLink>
-        <NavLink to="/auth">Authorization</NavLink>
-      </nav>
+      <ButtonAppBar />
 
       <Routes>
         <Route path="/" element={<Home />} />
