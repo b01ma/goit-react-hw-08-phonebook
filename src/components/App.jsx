@@ -1,11 +1,11 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from 'pages/Home/Home';
 import Contacts from 'pages/Contacts/Contacts';
 import Authorithation from 'pages/Auth/Authorithation';
 import LoginForm from './LogininForm/LoginForm';
 import RegisterForm from './RegisterForm/RegisterForm';
 import NewContactForm from './NewContactForm/NewContactForm';
-import AppNavBar from './AppBar/AppBar';
+
 import ButtonAppBar from './AppBar/AppBar';
 
 export const App = () => {

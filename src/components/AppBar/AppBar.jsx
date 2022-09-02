@@ -1,28 +1,9 @@
-// import { Box, AppBar } from '@mui/material';
-// import React from 'react';
-// import { NavLink } from 'react-router-dom';
-
-// const AppNavBar = () => {
-//   return (
-//     <div>
-
-//       <nav>
-//         <NavLink to="/">Home</NavLink>
-//         <NavLink to="/contacts">Contacts</NavLink>
-//         <NavLink to="/auth">Authorization</NavLink>
-//       </nav>
-//     </div>
-//   );
-// };
-
-// export default AppNavBar;
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+
 import Button from '@mui/material/Button';
-import { Link } from '@mui/material';
+
 import { NavLink } from 'react-router-dom';
 
 export default function ButtonAppBar() {
