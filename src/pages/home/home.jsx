@@ -1,21 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { Container } from '@mui/system';
+import { Typography, Button, Box } from '@mui/material';
+
 function Home() {
   return (
-    <div>
-      <h1>Contacts</h1>
-      <p>
+    <Container maxWidth="md">
+      <Typography
+        variant="h1"
+        align="center"
+        gutterBottom={true}
+        sx={{ marginTop: 5, fontSize: 40 }}
+      >
+        Your contacts app
+      </Typography>
+
+      <Typography variant="body1" align="center" sx={{ marginBottom: 10 }}>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati esse
         explicabo voluptatum, odit error ut quidem sit soluta omnis animi?
-      </p>
-      <button type="button">
-        <Link to="/auth/logIn">Login</Link>
-      </button>
-      <button type="button">
-        <Link to="/auth/registration">Register</Link>
-      </button>
-    </div>
+      </Typography>
+
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Button variant="contained">
+          <Link to="/auth">Log in / Register</Link>
+        </Button>
+      </Box>
+    </Container>
   );
 }
 
