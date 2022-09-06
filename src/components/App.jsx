@@ -3,7 +3,7 @@ import Home from 'pages/Home/Home';
 import Contacts from 'pages/Contacts/Contacts';
 import Authorithation from 'pages/Auth/Authorithation';
 import LoginForm from './LogininForm/LoginForm';
-import RegisterForm from './RegisterForm/RegisterForm';
+import RegisterForm from './RegisterForm';
 import NewContactForm from './NewContactForm/NewContactForm';
 
 import ButtonAppBar from './AppBar/AppBar';
