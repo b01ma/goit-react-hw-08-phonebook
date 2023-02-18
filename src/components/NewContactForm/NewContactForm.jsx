@@ -1,15 +1,16 @@
 import { Add } from '@mui/icons-material';
 import { Button, TextField } from '@mui/material';
 import { nanoid } from '@reduxjs/toolkit';
+import { useContacts } from 'hooks/useContacts';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from 'redux/contactSlice';
+import { useDispatch } from 'react-redux';
+import { addItem } from 'redux/contacts/contactsSlice';
 
 const NewContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const { contactsItems } = useContacts();
 
   const handleChange = e => {
     if (e.currentTarget.name === 'name') {
@@ -23,10 +24,11 @@ const NewContactForm = () => {
 
   const isSameContact = (name, number) => {
     return (
-      contacts.find(
+      contactsItems.find(
         contact =>
           contact.name.toLowerCase().trim() === name.toLowerCase().trim()
-      ) || contacts.find(contact => contact.number.trim() === number.trim())
+      ) ||
+      contactsItems.find(contact => contact.number.trim() === number.trim())
     );
   };
 

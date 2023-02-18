@@ -1,9 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
+import { useDispatch } from 'react-redux';
+import { setFilter } from 'redux/contacts/contactsSlice';
+import { selectFilter } from 'redux/contacts/contactsSelectors';
+import { useContacts } from 'hooks/useContacts';
 
 const ContactSearch = () => {
-  const filter = useSelector(state => state.contacts.filter);
+  const { contactsFilter } = useContacts(selectFilter);
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -17,7 +19,7 @@ const ContactSearch = () => {
           type="text"
           name="searchContact"
           placeholder="Search name"
-          value={filter}
+          value={contactsFilter}
           onChange={handleChange}
         />
       </form>
