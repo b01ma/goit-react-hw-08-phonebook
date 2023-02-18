@@ -6,6 +6,8 @@ export const registerUser = data => axios.post('/users/signup', data);
 
 export const logInUser = data => axios.post('/users/login', data);
 
+export const logOutUser = () => axios.post('/users/logout');
+
 export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };

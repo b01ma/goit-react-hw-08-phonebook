@@ -6,7 +6,19 @@ import { Container } from '@mui/system';
 
 import { NavLink } from 'react-router-dom';
 
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
+import authOperations from 'redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
+
 export default function ButtonAppBar() {
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    console.log('logged out');
+
+    dispatch(authOperations.logOut());
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -21,9 +33,15 @@ export default function ButtonAppBar() {
               </Button>
             </Box>
 
-            <Button color="inherit">
-              <NavLink to="/auth">Log in / Register</NavLink>
-            </Button>
+            {selectIsLoggedIn ? (
+              <Button color="inherit" onClick={handleLogOut}>
+                <NavLink to="/">LogOut</NavLink>
+              </Button>
+            ) : (
+              <Button color="inherit">
+                <NavLink to="/auth">Log in / Register</NavLink>
+              </Button>
+            )}
           </Toolbar>
         </Container>
       </AppBar>

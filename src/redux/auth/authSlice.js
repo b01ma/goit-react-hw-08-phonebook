@@ -27,6 +27,14 @@ const authSlice = createSlice({
     [authOperations.logIn.pending](state, action) {
       console.log('Loading...');
     },
+    [authOperations.logOut.fulfilled](state, action) {
+      state.user = '';
+      state.token = '';
+      state.isLoggedIn = false;
+    },
+    [authOperations.logOut.pending](state, action) {
+      console.log('Loading...');
+    },
   },
 });
 
