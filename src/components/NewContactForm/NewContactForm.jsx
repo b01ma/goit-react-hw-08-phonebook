@@ -67,6 +67,7 @@ const NewContactForm = () => {
           name="name"
           onChange={handleChange}
           value={name}
+          sx={{ margin: '10px' }}
         />
         <TextField
           size="small"
@@ -77,8 +78,14 @@ const NewContactForm = () => {
           name="number"
           onChange={handleChange}
           value={number}
+          sx={{ margin: '10px' }}
         />
-        <Button type="submit" variant="contained" startIcon={<Add />}>
+        <Button
+          type="submit"
+          variant="contained"
+          startIcon={<Add />}
+          sx={{ margin: '10px' }}
+        >
           Add
         </Button>
       </form>

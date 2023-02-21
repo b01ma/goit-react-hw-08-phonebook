@@ -10,6 +10,11 @@ const initialState = {
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
+  reducers: {
+    setFilter(state, action) {
+      state.filter = action.payload;
+    },
+  },
   extraReducers: {
     [contactsOperations.get.pending](state, _) {
       state.status = 'pending';
@@ -28,6 +33,6 @@ export const contactsSlice = createSlice({
   },
 });
 
-export const { addItem, deleteItem, setFilter } = contactsSlice.actions;
+export const { setFilter } = contactsSlice.actions;
 
 export default contactsSlice.reducer;
