@@ -4,16 +4,16 @@ import Contacts from 'pages/Contacts/Contacts';
 import Authorithation from 'pages/Auth/Authorithation';
 import LoginForm from './LogininForm/LoginForm';
 import RegisterForm from './RegisterForm/RegisterForm';
-import ContactSearch from './ContactSearch/ContactSearch';
-import ContactsList from './ContactsList/ContactsList';
-import ButtonAppBar from './AppBar/AppBar';
+import MainBar from './AppBar/AppBar';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
+import NewContactForm from './NewContactForm/NewContactForm';
+import PageNotFound from 'pages/PageNotFound/PageNotFound';
 
 export const App = () => {
   return (
-    <div>
-      <ButtonAppBar />
+    <>
+      <MainBar />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,10 +22,7 @@ export const App = () => {
           element={
             <PrivateRoute redirectTo="/auth/login" component={<Contacts />} />
           }
-        >
-          <Route path="contactSearch" element={<ContactSearch />} />
-          <Route path="contactList" element={<ContactsList />} />
-        </Route>
+        ></Route>
         <Route
           path="/auth"
           element={
@@ -35,7 +32,8 @@ export const App = () => {
           <Route path="logIn" element={<LoginForm />} />
           <Route path="registration" element={<RegisterForm />} />
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </div>
+    </>
   );
 };

@@ -1,23 +1,24 @@
 import { useContacts } from 'hooks/useContacts';
 import React from 'react';
-import { selectFilter, selectItems } from 'redux/contacts/contactsSelectors';
+import { useDispatch } from 'react-redux';
+import contactsOperations from 'redux/contacts/contactsOperations';
 
 const ContactsList = () => {
-  const { contactsItems } = useContacts(selectItems);
-  const { contactsFilter } = useContacts(selectFilter);
+  const contactsList = useContacts().contactsItems;
+  const dispatch = useDispatch();
 
-  const filteredContacts = items => {
-    const contacts = items.filter(item =>
-      item.name.toLowerCase().includes(contactsFilter.toLowerCase())
-    );
-    return contacts;
+  const handleClick = () => {
+    dispatch(contactsOperations.get());
   };
 
   return (
     <div>
       <p>Contacts</p>
+      <button type="button" onClick={handleClick}>
+        Get Contacts
+      </button>
       <ul>
-        {filteredContacts(contactsItems).map(contact => {
+        {contactsList?.map(contact => {
           return (
             <li key={contact.id}>
               {contact.name}: {contact.number}

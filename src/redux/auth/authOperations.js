@@ -19,18 +19,18 @@ const register = createAsyncThunk('auth/register', async credentials => {
 const logIn = createAsyncThunk('auth/logIn', async credentials => {
   try {
     const { data } = await logInUser(credentials);
+    console.log(data.token);
     setAuthHeader(data.token);
     return data;
   } catch (error) {
-    console.log(error.response);
+    console.log(error);
   }
 });
 
-const logOut = createAsyncThunk('auth/logOut', async credentials => {
+const logOut = createAsyncThunk('auth/logOut', async () => {
   try {
-    const { data } = await logOutUser();
+    await logOutUser();
     clearAuthHeader();
-    return data;
   } catch (error) {
     console.log(error.response);
   }

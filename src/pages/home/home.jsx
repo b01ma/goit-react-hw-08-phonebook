@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { Container } from '@mui/system';
 import { Typography, Button, Box } from '@mui/material';
+import useAuth from 'hooks/useAuth';
 
 function Home() {
+  const isLoggedIn = useAuth().isLoggedIn;
   return (
     <Container maxWidth="md">
       <Typography
@@ -21,11 +23,13 @@ function Home() {
         explicabo voluptatum, odit error ut quidem sit soluta omnis animi?
       </Typography>
 
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Button variant="contained">
-          <Link to="/auth">Log in / Register</Link>
-        </Button>
-      </Box>
+      {!isLoggedIn && (
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Button variant="contained">
+            <Link to="/auth">Log in / Register</Link>
+          </Button>
+        </Box>
+      )}
     </Container>
   );
 }

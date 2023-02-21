@@ -4,7 +4,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useContacts } from 'hooks/useContacts';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addItem } from 'redux/contacts/contactsSlice';
+import contactsOperations from 'redux/contacts/contactsOperations';
 
 const NewContactForm = () => {
   const [name, setName] = useState('');
@@ -42,7 +42,7 @@ const NewContactForm = () => {
     if (isSameContact(name, number)) {
       alert('This contact is already exists');
     } else {
-      dispatch(addItem(newContact));
+      dispatch(contactsOperations.add(newContact));
       setName('');
       setNumber('');
     }
@@ -50,6 +50,7 @@ const NewContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log('handleSubmit');
 
     addContact(name, number);
   };

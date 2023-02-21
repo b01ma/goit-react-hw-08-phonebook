@@ -28,8 +28,8 @@ const authSlice = createSlice({
       console.log('Loading...');
     },
     [authOperations.logOut.fulfilled](state, action) {
-      state.user = '';
-      state.token = '';
+      state.user = { name: null, email: null };
+      state.token = null;
       state.isLoggedIn = false;
     },
     [authOperations.logOut.pending](state, action) {
