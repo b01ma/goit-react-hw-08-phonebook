@@ -30,6 +30,10 @@ export const contactsSlice = createSlice({
       state.items = [...state.items, action.payload];
       state.status = 'fulfilled';
     },
+    [contactsOperations.remove.pending](state, _) {
+      state.status = 'pending';
+    },
+    [contactsOperations.remove.fulfilled](state, action) {},
   },
 });
 

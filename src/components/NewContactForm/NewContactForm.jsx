@@ -1,5 +1,5 @@
 import { Add } from '@mui/icons-material';
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import { nanoid } from '@reduxjs/toolkit';
 import { useContacts } from 'hooks/useContacts';
 import React, { useState } from 'react';
@@ -56,7 +56,15 @@ const NewContactForm = () => {
   };
 
   return (
-    <div>
+    <>
+      <Typography
+        variant="h2"
+        align="left"
+        gutterBottom={true}
+        sx={{ fontSize: 20, fontWeight: 500, margin: '10px' }}
+      >
+        Create a new contact
+      </Typography>
       <form onSubmit={handleSubmit}>
         <TextField
           size="small"
@@ -89,7 +97,7 @@ const NewContactForm = () => {
           Add
         </Button>
       </form>
-    </div>
+    </>
   );
 };
 

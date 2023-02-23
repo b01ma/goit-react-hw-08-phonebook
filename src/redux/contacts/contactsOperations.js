@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getContacts, addContact } from 'service/contactsAPI';
+import { getContacts, addContact, deleteContact } from 'service/contactsAPI';
 
 const get = createAsyncThunk('contacts/get', async () => {
   try {
@@ -19,9 +19,20 @@ const add = createAsyncThunk('contacts/add', async contact => {
   }
 });
 
+const remove = createAsyncThunk('contacts/delete', async id => {
+  try {
+    const { data } = await deleteContact(id);
+
+    return data;
+  } catch (error) {
+    alert(error);
+  }
+});
+
 const contactsOperations = {
   get,
   add,
+  remove,
 };
 
 export default contactsOperations;
