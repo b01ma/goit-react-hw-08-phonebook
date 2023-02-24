@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from 'pages/Home/Home';
 import Contacts from 'pages/Contacts/Contacts';
 import Authorithation from 'pages/Auth/Authorithation';
 import MainBar from './AppBar/AppBar';
@@ -8,6 +7,7 @@ import RestrictedRoute from './RestrictedRoute';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import LogInForm from './SingInForm/SignInForm';
 import RegisterForm from './RegisterForm/RegisterFormM';
+import Home from 'pages/Home';
 
 export const App = () => {
   return (

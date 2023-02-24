@@ -5,7 +5,7 @@ import { Container } from '@mui/system';
 import { Typography, Button, Box } from '@mui/material';
 import useAuth from 'hooks/useAuth';
 
-function Home() {
+const Home = () => {
   const isLoggedIn = useAuth().isLoggedIn;
   return (
     <Container maxWidth="md">
@@ -32,6 +32,6 @@ function Home() {
       )}
     </Container>
   );
-}
+};
 
 export default Home;
