@@ -7,7 +7,7 @@ import Navigation from 'components/Navigation/Navigation';
 import UserMenu from 'components/UserMenu/UserMenu';
 import useAuth from 'hooks/useAuth';
 
-export default function MainBar() {
+const MainBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
@@ -24,4 +24,6 @@ export default function MainBar() {
       </AppBar>
     </Box>
   );
-}
+};
+
+export default MainBar;

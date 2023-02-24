@@ -12,7 +12,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Router basename="/goit-react-hw-08-phonebook/">
+        <Router>
           <App />
         </Router>
       </PersistGate>
@@ -21,6 +21,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+// basename = '/goit-react-hw-08-phonebook/';
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
