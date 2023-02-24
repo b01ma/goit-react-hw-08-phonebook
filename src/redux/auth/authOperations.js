@@ -12,18 +12,17 @@ const register = createAsyncThunk('auth/register', async credentials => {
     const { data } = await registerUser(credentials);
     return data;
   } catch (error) {
-    alert(error.response);
+    alert(error);
   }
 });
 
 const logIn = createAsyncThunk('auth/logIn', async credentials => {
   try {
     const { data } = await logInUser(credentials);
-    console.log(data.token);
     setAuthHeader(data.token);
     return data;
   } catch (error) {
-    console.log(error);
+    alert(error);
   }
 });
 
@@ -32,7 +31,7 @@ const logOut = createAsyncThunk('auth/logOut', async () => {
     await logOutUser();
     clearAuthHeader();
   } catch (error) {
-    console.log(error.response);
+    alert(error);
   }
 });
 

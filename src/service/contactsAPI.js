@@ -20,6 +20,6 @@ export const getContacts = () => axios.get('/contacts');
 
 export const addContact = data => axios.post('/contacts', data);
 
-export const deleteContact = id => axios.post(`/contacts/${id}`);
+export const deleteContact = id => axios.delete(`/contacts/${id}`);
 
 export const updateContact = (id, data) => axios.patch(`/contacts/${id}`, data);

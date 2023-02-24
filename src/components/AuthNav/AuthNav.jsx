@@ -1,12 +1,12 @@
-import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import { Typography } from '@mui/material';
 
 export default function AuthNav() {
   return (
     <div>
-      <Button color="inherit">
+      <Typography color="inherit" variant="button">
         <Link to="/auth">Log In / Register</Link>
-      </Button>
+      </Typography>
     </div>
   );
 }

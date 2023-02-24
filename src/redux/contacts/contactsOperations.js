@@ -19,11 +19,10 @@ const add = createAsyncThunk('contacts/add', async contact => {
   }
 });
 
-const remove = createAsyncThunk('contacts/delete', async id => {
+const remove = createAsyncThunk('contacts/delete', async (id, { dispatch }) => {
   try {
-    const { data } = await deleteContact(id);
-
-    return data;
+    await deleteContact(id);
+    dispatch(get());
   } catch (error) {
     alert(error);
   }

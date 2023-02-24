@@ -50,7 +50,6 @@ const NewContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('handleSubmit');
 
     addContact(name, number);
   };
