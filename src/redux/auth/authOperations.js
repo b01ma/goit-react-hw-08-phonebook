@@ -10,17 +10,21 @@ const {
   clearAuthHeader,
 } = require('service/contactsAPI');
 
-const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await registerUser(credentials);
-    toast.success('Successfully registered');
-    return data;
-  } catch (error) {
-    toast.error('Registration error');
+const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await registerUser(credentials);
+      toast.success('Successfully registered');
+      return data;
+    } catch (error) {
+      toast.error('Registration error');
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
 
-const logIn = createAsyncThunk('auth/logIn', async credentials => {
+const logIn = createAsyncThunk('auth/logIn', async (credentials, thunkAPI) => {
   try {
     const { data } = await logInUser(credentials);
     setAuthHeader(data.token);
@@ -28,6 +32,7 @@ const logIn = createAsyncThunk('auth/logIn', async credentials => {
     return data;
   } catch (error) {
     toast.error('Log in attempt error');
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 
