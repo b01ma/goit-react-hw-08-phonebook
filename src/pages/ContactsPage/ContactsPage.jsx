@@ -10,7 +10,7 @@ import contactsOperations from 'redux/contacts/contactsOperations';
 
 import { setAuthHeader } from 'service/contactsAPI';
 
-const Contacts = () => {
+const ContactsPage = () => {
   const dispatch = useDispatch();
   const token = useAuth().token;
 
@@ -40,4 +40,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default ContactsPage;

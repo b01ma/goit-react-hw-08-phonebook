@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 import MainBar from './MainBar';
-import Home from 'pages/Home';
 import Authorization from 'pages/Authorization';
-import Contacts from 'pages/Contacts';
 import PageNotFound from 'pages/PageNotFound';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import LogInForm from './LogInForm';
 import RegisterForm from './RegisterForm';
 import { ToastContainer } from 'react-toastify';
+import ContactsPage from 'pages/ContactsPage';
+import HomePage from 'pages/HomePage';
 
 export const App = () => {
   return (
@@ -16,11 +16,14 @@ export const App = () => {
       <MainBar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="/contacts"
           element={
-            <PrivateRoute redirectTo="/auth/login" component={<Contacts />} />
+            <PrivateRoute
+              redirectTo="/auth/login"
+              component={<ContactsPage />}
+            />
           }
         ></Route>
         <Route
