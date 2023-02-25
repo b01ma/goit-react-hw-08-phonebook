@@ -19,7 +19,8 @@ const PageNotFound = () => {
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Link
           component="button"
-          variant="body2"
+          variant="button"
+          underline="none"
           onClick={() => {
             console.info("I'm a button.");
           }}

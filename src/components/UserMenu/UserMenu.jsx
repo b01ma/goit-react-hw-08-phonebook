@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import useAuth from 'hooks/useAuth';
 
-export default function UserMenu() {
+const UserMenu = () => {
   const { user, handleLogOut } = useAuth();
 
   return (
@@ -16,4 +16,6 @@ export default function UserMenu() {
       </Button>
     </Box>
   );
-}
+};
+
+export default UserMenu;

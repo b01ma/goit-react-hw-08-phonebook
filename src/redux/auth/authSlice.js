@@ -5,6 +5,7 @@ const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
+  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -12,28 +13,36 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [authOperations.register.fulfilled](state, action) {
+      console.log('fullfilled');
+      state.isLoading = false;
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
-    [authOperations.register.pending](state, action) {
-      console.log('Loading...');
+    [authOperations.register.pending](state, _) {
+      state.isLoading = true;
+    },
+    [authOperations.register.rejected](state, _) {
+      state.isLoading = false;
+      console.log('rejected');
     },
     [authOperations.logIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
+      state.isLoading = false;
     },
-    [authOperations.logIn.pending](state, action) {
-      console.log('Loading...');
+    [authOperations.logIn.pending](state, _) {
+      state.isLoading = true;
     },
-    [authOperations.logOut.fulfilled](state, action) {
+    [authOperations.logOut.fulfilled](state, _) {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
+      state.isLoading = false;
     },
     [authOperations.logOut.pending](state, action) {
-      console.log('Loading...');
+      state.isLoading = true;
     },
   },
 });

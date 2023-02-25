@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
-export default function Navigation() {
+const Navigation = () => {
   return (
     <>
       <Typography
@@ -32,4 +32,6 @@ export default function Navigation() {
       </Typography>
     </>
   );
-}
+};
+
+export default Navigation;

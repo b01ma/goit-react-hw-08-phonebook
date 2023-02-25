@@ -12,6 +12,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/authOperations';
 import { Link } from 'react-router-dom';
+import useAuth from 'hooks/useAuth';
+import Spinner from 'components/Spinner';
 
 const theme = createTheme();
 
@@ -20,6 +22,7 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [firstPassword, setFirstPassword] = useState('');
   const [secondPassword, setSecondPassword] = useState('');
+  const { isLoading } = useAuth();
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -138,7 +141,7 @@ const RegisterForm = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              {isLoading ? <Spinner /> : 'Register'}
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>

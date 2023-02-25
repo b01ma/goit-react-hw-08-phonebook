@@ -1,3 +1,6 @@
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const { createAsyncThunk } = require('@reduxjs/toolkit');
 const {
   registerUser,
@@ -10,9 +13,10 @@ const {
 const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await registerUser(credentials);
+    toast.success('Successfully registered');
     return data;
   } catch (error) {
-    alert(error);
+    toast.error('Registration error');
   }
 });
 
@@ -20,9 +24,10 @@ const logIn = createAsyncThunk('auth/logIn', async credentials => {
   try {
     const { data } = await logInUser(credentials);
     setAuthHeader(data.token);
+    toast.success('Successfully logged in');
     return data;
   } catch (error) {
-    alert(error);
+    toast.error('Log in attempt error');
   }
 });
 
@@ -30,8 +35,9 @@ const logOut = createAsyncThunk('auth/logOut', async () => {
   try {
     await logOutUser();
     clearAuthHeader();
+    toast.success('Successfully logged out');
   } catch (error) {
-    alert(error);
+    console.log(error.message);
   }
 });
 

@@ -12,7 +12,7 @@ const Authorithation = () => {
         gutterBottom={true}
         sx={{ marginTop: 5, fontSize: 40 }}
       >
-        Welocme to Contacts
+        Welcome to Contacts
       </Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Typography
@@ -28,7 +28,7 @@ const Authorithation = () => {
             },
           }}
         >
-          <Link to="/auth/logIn">Login</Link> /{' '}
+          <Link to="/auth/login">Login</Link> /{' '}
         </Typography>
         <Typography
           variant="button"

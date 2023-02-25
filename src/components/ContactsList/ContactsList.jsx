@@ -7,13 +7,16 @@ import {
   Typography,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import FilterContacts from 'components/FilterContacts/FilterContacts';
+import filterContacts from 'utils/filterContacts/filterContacts';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import contactsOperations from 'redux/contacts/contactsOperations';
+import { useContacts } from 'hooks/useContacts';
+import Spinner from 'components/Spinner';
 
 const ContactsList = () => {
-  const contactsList = FilterContacts();
+  const { contactsItems, contactsFilter, isLoading } = useContacts();
+  const contactsList = filterContacts(contactsItems, contactsFilter);
   const dispatch = useDispatch();
 
   const handleDelete = id => {
@@ -34,6 +37,8 @@ const ContactsList = () => {
       >
         Your contacts
       </Typography>
+
+      {isLoading && <Spinner />}
 
       <List sx={{ maxWidth: '800px' }}>
         {contactsList?.map(contact => {

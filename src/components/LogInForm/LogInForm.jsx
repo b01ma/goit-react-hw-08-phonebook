@@ -12,6 +12,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/authOperations';
 import { Link } from 'react-router-dom';
+import useAuth from 'hooks/useAuth';
+import Spinner from 'components/Spinner';
 
 const theme = createTheme();
 
@@ -19,6 +21,7 @@ const LogInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const { isLoading } = useAuth();
 
   const handleChange = e => {
     if (e.target.name === 'email') {
@@ -95,7 +98,7 @@ const LogInForm = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              {isLoading ? <Spinner /> : 'Log In'}
             </Button>
             <Grid container>
               <Grid item>

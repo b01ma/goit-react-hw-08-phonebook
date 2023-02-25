@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
-export default function AuthNav() {
+const AuthNav = () => {
   return (
     <div>
       <Typography color="inherit" variant="button">
@@ -9,4 +9,6 @@ export default function AuthNav() {
       </Typography>
     </div>
   );
-}
+};
+
+export default AuthNav;
