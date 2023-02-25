@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
-const Authorithation = () => {
+const Authorization = () => {
   return (
     <Container maxWidth="md">
       <Typography
@@ -52,4 +52,4 @@ const Authorithation = () => {
   );
 };
 
-export default Authorithation;
+export default Authorization;

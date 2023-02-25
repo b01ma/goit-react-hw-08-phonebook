@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import MainBar from './MainBar';
 import Home from 'pages/Home';
-import Authorithation from 'pages/Auth';
+import Authorization from 'pages/Authorization';
 import Contacts from 'pages/Contacts';
 import PageNotFound from 'pages/PageNotFound';
 import PrivateRoute from './PrivateRoute';
@@ -26,7 +26,7 @@ export const App = () => {
         <Route
           path="/auth"
           element={
-            <RestrictedRoute redirectTo="/" component={<Authorithation />} />
+            <RestrictedRoute redirectTo="/" component={<Authorization />} />
           }
         >
           <Route index element={<LogInForm />} />
