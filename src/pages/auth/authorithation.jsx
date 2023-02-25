@@ -14,6 +14,7 @@ const Authorithation = () => {
       >
         Welcome to Contacts
       </Typography>
+
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Typography
           variant="button"

@@ -20,7 +20,6 @@ const Contacts = () => {
       const contacts = await contactsOperations.get();
       dispatch(contacts);
     };
-
     getContcts();
   }, [dispatch, token]);
   return (

@@ -17,7 +17,6 @@ const Home = () => {
       >
         Your contacts app
       </Typography>
-
       <Typography variant="body1" align="center" sx={{ marginBottom: 10 }}>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati esse
         explicabo voluptatum, odit error ut quidem sit soluta omnis animi?
